@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<!-- to make the shit i copied and pasted from Angular Sidenav demo work -->
+		<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="bower_components/angular-messages/angular-messages.js"></script>
+		<script src="bower_components/svg-assets-cache/index.js"></script>
+		<script src="bower_components/angular-material/angular-material.min.js"></script>
+		<!-- the angular app -->
+		<script src="app.js"></script>
+		<!-- for google sheets API -->
+		<script src="sheetsapi.js"></script>
+		<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+	</head>
+	<body>
+		<div ng-controller="AppCtrl" layout="column" style="height:100%;" ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp">
+
+		  <section layout="row" flex="" flex-order="1">
+
+		    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="true" md-whiteframe="4">
+
+		      <md-toolbar class="md-theme-indigo">
+		        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+		      </md-toolbar>
+		      <md-content layout-padding="" ng-controller="LeftCtrl">
+		    	<form>
+		          <md-input-container>
+		            <label for="publicationYear">Publication Year</label>
+		            <input id="publicationYear" ng-model="publicationYear" md-autofocus="" type="text">
+		          </md-input-container>
+		          <md-input-container>
+		            <label for="source">Source</label>
+		            <input id="source" ng-model="source" md-autofocus="" type="text">
+		          </md-input-container>
+		          <md-input-container>
+		            <label for="URL">URL</label>
+		            <input id="URL" ng-model="URL" md-autofocus="" type="text">
+		          </md-input-container>
+		          <md-input-container>
+		            <label for="snippet">Snippet</label>
+		            <input id="snippet" ng-model="snippet" md-autofocus="" type="textarea">
+		          </md-input-container>
+		        </form>
+
+		      </md-content>
+
+		    </md-sidenav>
+
+		    <md-content flex="" layout-padding="" flex-order="2" flex-offset="1">
+
+		      <div layout="column" layout-align="top center">
+				<div id="authorize-div" style="">
+				  <span>Authorize access to Google Sheets API</span>
+				  <!--Button for the user to click to initiate auth sequence -->
+				  <button id="authorize-button" onclick="handleAuthClick(event)">
+				    Authorize
+				  </button>
+				</div>
+				<pre id="output"></pre>
+		        <!--
+		          <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md="">
+		            EDIT
+		          </md-button>
+		        -->
+		        </div>
+
+		      </div>
+
+		    </md-content>
+
+		  </section>
+
+		</div>
+
+		<!--
+		Copyright 2016 Google Inc. All Rights Reserved. 
+		Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+		-->
+	</body>
+</html>

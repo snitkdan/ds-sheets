@@ -1,0 +1,15 @@
+{
+  "name": "svg-assets-cache",
+  "_cacheHeaders": {
+    "ETag": "\"0446ccb33f79c56b54749eaf66f5324c\"",
+    "Last-Modified": "Sun, 17 Jan 2016 21:50:31 GMT",
+    "Content-Length": "114412",
+    "Content-Type": "text/javascript"
+  },
+  "_release": "e-tag:0446ccb33",
+  "main": "index.js",
+  "_source": "http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js",
+  "_target": "*",
+  "_originalSource": "http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js",
+  "_direct": true
+}
