@@ -28,20 +28,23 @@
 		    	<form>
 		          <md-input-container>
 		            <label for="publicationYear">Publication Year</label>
-		            <input id="publicationYear" ng-model="publicationYear" md-autofocus="" type="text">
+		            <input id="publicationYear" ng-model="data.publicationYear" md-autofocus="" type="text">
 		          </md-input-container>
 		          <md-input-container>
 		            <label for="source">Source</label>
-		            <input id="source" ng-model="source" md-autofocus="" type="text">
+		            <input id="source" ng-model="data.source" md-autofocus="" type="text">
 		          </md-input-container>
 		          <md-input-container>
 		            <label for="URL">URL</label>
-		            <input id="URL" ng-model="URL" md-autofocus="" type="text">
+		            <input id="URL" ng-model="data.URL" md-autofocus="" type="text">
 		          </md-input-container>
 		          <md-input-container>
 		            <label for="snippet">Snippet</label>
-		            <input id="snippet" ng-model="snippet" md-autofocus="" type="textarea">
+		            <input id="snippet" ng-model="data.snippet" md-autofocus="" type="textarea">
 		          </md-input-container>
+		          <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md="">
+		            ADD
+		          </md-button>
 		        </form>
 
 		      </md-content>
@@ -59,11 +62,8 @@
 				  </button>
 				</div>
 				<pre id="output"></pre>
-		        <!--
-		          <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md="">
-		            EDIT
-		          </md-button>
-		        -->
+				<p>{{data.publicationYear}}, {{data.source}}, {{data.URL}}, {{data.snippet}}</p>
+
 		        </div>
 
 		      </div>
