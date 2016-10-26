@@ -7,10 +7,10 @@ var SPREADSHEET_ID = null;
 var SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
 // This is the set of columns that Google looks for a table in, and to which we add entries
-// The four column range corresponds to publicationYear, source, URL, snippet
+// A four column range
 var RANGE = 'A1:D1';
 
-// from http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
+// cuz idk what im doing this is from http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
 function setIDsFromConfig(file, callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -78,17 +78,17 @@ function handleAuthClick(event) {
 function loadSheetsApi() {
   var discoveryUrl =
       'https://sheets.googleapis.com/$discovery/rest?version=v4';
-  gapi.client.load(discoveryUrl).then(listMajors);
+  gapi.client.load(discoveryUrl).then(listSnippets);
 }
 
 /**
- * Print the names and majors of students in a sample spreadsheet:
+ * Print rows of stats in our table
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  *
  *
  */
 
-function listMajors() {
+function listSnippets() {
   gapi.client.sheets.spreadsheets.values.get({
     spreadsheetId: SPREADSHEET_ID,
     range: 'Sheet1!A2:D20'
@@ -144,12 +144,6 @@ angular
 
   .controller('LeftCtrl', function ($scope, $http, preview) {
     $scope.data = preview.data;
-    var successCallback = function(status) {
-      console.log('woo!' + status);
-    }
-    var errorCallback = function(status) {
-      console.log('aww :( ' + status);
-    }
     $scope.data.appendRow = function() {
       $http({
         method: 'POST',
@@ -174,5 +168,4 @@ angular
         */
       });
     }
-    console.log($scope.data.appendRow.status);
   });
